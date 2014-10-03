@@ -11,11 +11,11 @@ module Approvals
     extend Writers
 
     REGISTRY = {
-      json: Writers::JsonWriter.new,
-      xml: Writers::XmlWriter.new,
-      html: Writers::HtmlWriter.new,
-      hash: Writers::HashWriter.new,
-      array: Writers::ArrayWriter.new,
+      :json => Writers::JsonWriter.new,
+      :xml => Writers::XmlWriter.new,
+      :html => Writers::HtmlWriter.new,
+      :hash => Writers::HashWriter.new,
+      :array => Writers::ArrayWriter.new,
     }
 
 

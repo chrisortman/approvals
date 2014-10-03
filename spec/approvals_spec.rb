@@ -90,7 +90,7 @@ describe Approvals do
       {"name" => "Bob", "age" => 22}
     ]
 
-    Approvals.verify(people, format: :json, namer: namer)
+    Approvals.verify(people, :format => :json, :namer => namer)
   end
 
   it "verifies an executable" do
@@ -108,7 +108,8 @@ describe Approvals do
   end
 
   describe "supports excluded keys option" do
-    let(:hash) { {:object => {:id => rand(100), :created_at => Time.now, :name => 'test', deleted_at: nil}} }
+    let(:hash) { 
+      {:object => {:id => rand(100), :created_at => Time.now, :name => 'test', :deleted_at => nil}} }
 
     before do
       Approvals.configure do |c|

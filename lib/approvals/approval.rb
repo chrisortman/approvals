@@ -18,8 +18,8 @@ module Approvals
 
     # Add a Proc that tests if subject is a kind of format
     IDENTITIES = {
-      hash: Proc.new(){|subject|subject.respond_to? :each_pair},
-      array: Proc.new(){|subject|subject.respond_to? :each_with_index},      
+      :hash => Proc.new(){|subject|subject.respond_to?(:each_pair)},
+      :array => Proc.new(){|subject|subject.respond_to?(:each_with_index)},
     }
     
     def identify_format
