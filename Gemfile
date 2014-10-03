@@ -4,3 +4,4 @@ source "http://rubygems.org"
 gemspec
 
 gem 'rubysl', '~> 2.0', :platform => :rbx
+gem 'rake'
