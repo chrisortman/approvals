@@ -14,7 +14,7 @@ describe Approvals do
 
   it "verifies a string" do
     string = "We have, I fear, confused power with greatness."
-    Approvals.verify string, :namer => namer
+    Approvals.verify string, :namer => namer, :format => :text
   end
 
   it "verifies an array" do
@@ -74,6 +74,7 @@ describe Approvals do
   end
 
   it "verifies json" do
+    #json = '{"pet":{"name":"Anthony","color":"green","species":"turtle"}}'
     json = '{"pet":{"species":"turtle","color":"green","name":"Anthony"}}'
     Approvals.verify json, :format => :json, :namer => namer
   end

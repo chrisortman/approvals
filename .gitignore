@@ -5,3 +5,4 @@ pkg/*
 *.received.txt
 .approvals
 tmp/
+tags
