@@ -6,7 +6,8 @@ module Approvals
     class ExplicitNamer
 
       attr_reader :name
-      def initialize(sub_path,filename)
+      def initialize(sub_path,example)
+        @sub_path = sub_path
         @name = normalize example.description
       end
 
@@ -16,7 +17,7 @@ module Approvals
 
       def output_dir
         unless @output_dir
-          @output_dir ||= 'spec/fixtures/approvals/' + sub_path
+          @output_dir ||= 'spec/fixtures/approvals/' + @sub_path
         end
         @output_dir
       end
