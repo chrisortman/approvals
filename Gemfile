@@ -5,4 +5,10 @@ gemspec
 
 gem 'rubysl', '~> 2.0', :platform => :rbx
 gem 'rake'
-gem 'ruby-debug'
+group :development do
+  if RUBY_VERSION < '1.9.3'
+    gem 'ruby-debug'
+  else
+    gem 'debugger'
+  end
+end

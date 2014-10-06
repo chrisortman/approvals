@@ -18,6 +18,7 @@ module Approvals
 
     # Add a Proc that tests if subject is a kind of format
     IDENTITIES = {
+      :text => Proc.new(){|subject| subject.is_a?(String) },
       :hash => Proc.new(){|subject|subject.respond_to?(:each_pair)},
       :array => Proc.new(){|subject|subject.respond_to?(:each_with_index)},
     }

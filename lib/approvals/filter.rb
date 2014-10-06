@@ -20,7 +20,7 @@ module Approvals
       when Array
         value.map { |item| censored(item) }
       when Hash
-        Hash[value.map { |key, value| [key, censored(value, key)] }]
+        Hash[value.map { |k, v| [k, censored(v, k)] }]
       else
         if value.nil?
           nil
@@ -35,11 +35,25 @@ module Approvals
     def placeholder_for key
       return @placeholder[key] if @placeholder.key? key
 
+      debugger;
+
       applicable_filters = filters.select do |placeholder, pattern|
-        pattern && key.match(pattern)
+        filter_applies?(pattern,key)
       end
 
-      @placeholder[key] = applicable_filters.keys.last
+      applicable_filters = 
+        filters.select { |_,pattern| filter_applies?(pattern,key) }
+
+      #Ruby 1.8.7 doesn't give you a Hash back from #select
+      @placeholder[key] = Hash[applicable_filters].keys.last
+    end
+
+    def filter_applies?(pattern, data_key)
+      if data_key.respond_to?(:match)
+        pattern && data_key.match(pattern)
+      else
+        pattern && data_key.to_s.match(pattern)
+      end
     end
   end
 end

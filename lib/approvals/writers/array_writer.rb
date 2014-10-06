@@ -3,11 +3,14 @@ module Approvals
     class ArrayWriter < TextWriter
 
       def format(data)
+#        require 'ruby-debug'; debugger;
         filtered = filter(data).map
         if filtered.respond_to?(:with_index)
-          filter(data).map.with_index do |value, i|
+          s = filter(data).map.with_index do |value, i|
             "[#{i.inspect}] #{value.inspect}\n"
-          end.join
+          end
+
+          s.join
         else
           i = -1
           s = []
@@ -15,6 +18,7 @@ module Approvals
             i = i + 1
             s << "[#{i.inspect}] #{value.inspect}\n"
           end
+
           s.join
         end
       end

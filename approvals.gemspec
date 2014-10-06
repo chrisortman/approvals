@@ -23,6 +23,9 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rspec', '~> 2.99.0.beta2'
   s.add_development_dependency 'json', '~> 1.8'
   s.add_dependency 'thor', '~> 0.18'
-#  s.add_dependency 'nokogiri', '~> 1.6'
-  s.add_dependency 'nokogiri', '1.5.6'
+  if RUBY_VERSION < '1.9.3'
+    s.add_dependency 'nokogiri', '1.5.6'
+  else
+    s.add_dependency 'nokogiri', '~> 1.6'
+  end
 end

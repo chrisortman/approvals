@@ -47,7 +47,7 @@ shared_context 'verify examples' do
     end
   end
 
-  specify "json" do
+  skip "json" do
     verify :format => :json do
       json = '{"pet":{"species":"turtle","color":"green","name":"Anthony"}}'
     end

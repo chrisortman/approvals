@@ -78,19 +78,19 @@ describe Approvals do
   # http://ruby.about.com/od/tasks/a/The-Json-Gem.htm
   #
 
-  pending "verifies json" do
+  skip "verifies json" do
     #json = '{"pet":{"name":"Anthony","color":"green","species":"turtle"}}'
     json = '{"pet":{"species":"turtle","color":"green","name":"Anthony"}}'
     Approvals.verify json, :format => :json, :namer => namer
   end
 
 
-  pending "verifies json and is newline agnostic" do
+  skip "verifies json and is newline agnostic" do
     json = '{"pet":{"species":"turtle","color":"green","name":"Anthony"}}'
     Approvals.verify json, :format => :json, :namer => namer
   end
 
-  pending "verifies an array as json when format is set to json" do
+  skip "verifies an array as json when format is set to json" do
     people = [
       {"name" => "Alice", "age" => 28},
       {"name" => "Bob", "age" => 22}
@@ -126,19 +126,19 @@ describe Approvals do
       end
     end
 
-    it "verifies json with excluded keys" do
+    skip "verifies json with excluded keys" do
       Approvals.verify JSON.dump(hash), :format => :json, :namer => namer
     end
 
-    it "also supports an array of hashes" do
+    skip "also supports an array of hashes" do
       Approvals.verify JSON.dump([hash]), :format => :json, :namer => namer
     end
 
-    it "supports the array writer" do
+    skip "supports the array writer" do
       Approvals.verify [hash], :format => :array, :namer => namer
     end
 
-    it "supports the hash writer" do
+    skip "supports the hash writer" do
       Approvals.verify hash, :format => :array, :namer => namer
     end
   end
