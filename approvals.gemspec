@@ -4,7 +4,7 @@ $:.push File.expand_path("../lib", __FILE__)
 require 'approvals/version'
 
 Gem::Specification.new do |s|
-  s.name        = "approvals"
+  s.name        = "approvals-187"
   s.version     = Approvals::VERSION
   s.licenses    = ['MIT']
   s.authors     = ["Katrina Owen"]
